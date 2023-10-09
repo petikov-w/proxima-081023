@@ -1,0 +1,16 @@
+@import "~normalize.css";
+@import "./styles/fonts.css";
+
+:root {
+    --master-color: #EF5221;
+    --slave-color: #ffffff;
+}
+
+body {
+    background: #1C2739 url(@images/main-page-pic.png) no-repeat fixed;
+    background-size: 100% 100%;
+    font-family: OpenSans;
+    box-sizing: border-box;
+    width: 1100px;
+    margin: 0 auto;
+}
