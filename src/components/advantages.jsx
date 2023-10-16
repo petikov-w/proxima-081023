@@ -55,7 +55,7 @@ const AdvantagesCardSubTitle = styled.p`
     font-weight: 400;
     line-height: 19px;
     color: var(--slave-color);
-    /* color: rgba(241,241,241,.8); */
+    opacity: 0.8;
     padding: 5px 20px;
     text-align: center;
     /* margin-top: -5px; */
@@ -68,7 +68,7 @@ const Advante = [
   },
   {img: track,
    title: 'Экономия\nна транспорте',
-   subtitle: 'более 10 собственных газовозов которые экономят 5 – 7% ваших денежных средств'
+   subtitle: 'более 10 собственных газовозов которые экономят 5 – 7% ваших денежных средств',
   },
   {img: cards,
    title: 'Оплата удобным\nдля вас способом',
