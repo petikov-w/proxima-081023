@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import sistern from '@images/sistern.png';
+import car from '@images/car_1.png';
+import button from '@images/btn_zakaz_gaz.png'
 
 import {device, size_screen} from './device';
 
@@ -11,31 +12,94 @@ const HeroSection = styled.div`
 
    @media ${device.mobileM} {
      flex-direction: column;
-     width: ${size_screen.mobileM};
+     max-width: 100vw;
+     /* width: ${size_screen.mobileM}; */
      align-items: center;
    }
 `;
 
 const HeroBoxLeft = styled.div`
-    width: 48%;
-    height: 213px;
-    border-radius: 20px;
-    background: rgba(241,241,241,.2);
-    margin: 60px 0 15px 0;
+    width: 44%;
+    /* height: 213px;    */
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
+
+    @media ${device.mobileM} {
+     flex-direction: column;
+     width: 100%;
+     align-items: center;
+   }
 `;
 
+const HeroBoxLeftTitle = styled.span`
+    font-family: RussoOne;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 46px;
+    color: var(--master-color);;
+    text-align: left;
+    @media ${device.mobileM} {
+     width: 80%;
+     font-size: 30px;
+     line-height: 32px;
+     text-align: center;
+   }
+`;
+   const HeroBoxLefSubtTitle = styled.span`
+    font-family: RussoOne;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 25px;
+    color: var(--slave-color);;
+    text-align: left;
+    @media ${device.mobileM} {
+     width: 80%;
+     font-size: 16px;
+     line-height: 20px;
+     text-align: center;
+   }  
+   
+`; 
+
+const HeroBoxLeftButton = styled.img`    
+    /* text-align: left; */
+    cursor: pointer;
+    width: 80%; 
+    display: flex;
+    align-items: flex-start;
+
+    &:hover {
+      opacity: 0.7;
+    }
+    @media ${device.mobileM} {
+     width: 70%;     
+   }  
+   
+`; 
+
+
+
+
+
 const HeroBoxRight = styled.div`
-    width: 48%;
-    height: 213px;
-    border-radius: 20px;
-    background: rgba(241,241,241,.2);
-    margin: 60px 0 15px 0;
+    width: 54%;
+    /* height: 213px;    */
     display: flex;
     align-items: center;
     flex-direction: column;
+    @media ${device.mobileM} {
+     flex-direction: column;
+     width: 100%;
+     align-items: center;
+   }
+`;
+
+const HeroBoxRightImage = styled.img`
+   @media ${device.mobileM} {
+     width: 98%;
+   }
+
 `;
 
 
@@ -46,8 +110,14 @@ export const HeroBox = () => {
       return (
           <>        
           <HeroSection>
-            <HeroBoxLeft></HeroBoxLeft>
-            <HeroBoxRight></HeroBoxRight>
+            <HeroBoxLeft>
+              <HeroBoxLeftTitle>Качественный газ для газгольдера</HeroBoxLeftTitle>
+              <HeroBoxLefSubtTitle>Доставка в любое время дня и ночи вне зависимости от погодных условий</HeroBoxLefSubtTitle>
+              <HeroBoxLeftButton src={button}></HeroBoxLeftButton>
+            </HeroBoxLeft>
+            <HeroBoxRight>
+              <HeroBoxRightImage src={car}></HeroBoxRightImage>
+            </HeroBoxRight>
           </HeroSection>       
           
           </>

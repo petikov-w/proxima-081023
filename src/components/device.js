@@ -1,6 +1,6 @@
 export const size_screen = {
     mobileS: '320px',
-    mobileM: '375px',
+    mobileM: '380px',
     mobileL: '425px',
     tablet: '768px',
     laptop: '1024px',

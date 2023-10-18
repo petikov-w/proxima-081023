@@ -15,7 +15,8 @@ const HeaderBox = styled.div`
 
    @media ${device.mobileM} {
      flex-direction: column;
-     width: ${size_screen.mobileM};
+     max-width: 100vw;
+     /* max-width: ${size_screen.mobileM}; */
    }
 `;
 
