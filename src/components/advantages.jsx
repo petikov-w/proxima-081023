@@ -91,7 +91,7 @@ export const AdvantagesBox = () => {
          <AdvantagesSection>
           {
             Advante.map((item, index) => (
-              <AdvantagesCard >
+              <AdvantagesCard key={index}>
                 <AdvantagesCardImage src={item.img}  mtop={item.mtop} />            
                 <AdvantagesCardTitle>{item.title}</AdvantagesCardTitle>
                 <AdvantagesCardSubTitle>{item.subtitle}</AdvantagesCardSubTitle>

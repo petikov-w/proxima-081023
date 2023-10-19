@@ -8,9 +8,7 @@ const FooterBox = styled.div`
    justify-content: flex-start;
 
    @media ${device.mobileM} {
-     flex-direction: column;
-     /* max-width: 100vw; */
-     max-width: ${size_screen.mobileM};
+     flex-direction: column;    
      align-items: center;
    }
 `;

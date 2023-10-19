@@ -2,27 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 
 import car from '@images/car_1.png';
-import button from '@images/btn_zakaz_gaz.png'
+import button from '@images/btn_zakaz_gaz.png';
+
+import { InfoGaz } from './InfoGaz';
 
 import {device, size_screen} from './device';
+
 
 const HeroSection = styled.div`
    display: flex;
    justify-content: space-between;
+   margin-bottom: -35px;
 
    @media ${device.mobileM} {
      flex-direction: column;
-     /* max-width: 100vw; */
-     max-width: ${size_screen.mobileM};
      align-items: center;
    }
 `;
 
 const HeroBoxLeft = styled.div`
     width: 44%;
-    /* height: 213px;    */
     display: flex;
-    /* align-items: center; */
     flex-direction: column;
 
     @media ${device.mobileM} {
@@ -63,11 +63,11 @@ const HeroBoxLeftTitle = styled.span`
 `; 
 
 const HeroBoxLeftButton = styled.img`    
-    /* text-align: left; */
     cursor: pointer;
     width: 80%; 
     display: flex;
     align-items: flex-start;
+    margin : 30px 0 ;
 
     &:hover {
       opacity: 0.7;
@@ -78,13 +78,8 @@ const HeroBoxLeftButton = styled.img`
    
 `; 
 
-
-
-
-
 const HeroBoxRight = styled.div`
     width: 54%;
-    /* height: 213px;    */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -95,7 +90,7 @@ const HeroBoxRight = styled.div`
    }
 `;
 
-const HeroBoxRightImage = styled.img`
+const HeroBoxRightImage = styled.img`   
    @media ${device.mobileM} {
      width: 98%;
    }
@@ -112,6 +107,7 @@ export const HeroBox = () => {
           <HeroSection>
             <HeroBoxLeft>
               <HeroBoxLeftTitle>Качественный газ для газгольдера</HeroBoxLeftTitle>
+              <InfoGaz></InfoGaz>
               <HeroBoxLefSubtTitle>Доставка в любое время дня и ночи вне зависимости от погодных условий</HeroBoxLefSubtTitle>
               <HeroBoxLeftButton src={button}></HeroBoxLeftButton>
             </HeroBoxLeft>
