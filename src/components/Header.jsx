@@ -15,6 +15,8 @@ const HeaderBox = styled.div`
 
    @media ${device.mobileM} {
      flex-direction: column;    
+     margin-top: 30px;
+     margin-bottom: 60px;
    }
 `;
 
@@ -37,9 +39,11 @@ const Question = styled.span`
    font-size: 16px;
    font-weight: 600;
    color: var(--master-color);
+   cursor: pointer;
 
    &:hover {
     text-decoration: underline;
+    color: #f86a3a;
    }
 `;
    

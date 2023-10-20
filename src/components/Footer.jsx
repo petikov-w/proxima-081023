@@ -20,9 +20,11 @@ const FooterItem = styled.span`
     line-height: 19px;
     color: var(--slave-color);
     margin-right: 30px;
+    cursor: pointer;
 
     &:hover {
       text-decoration: underline;
+      opacity: 0.5;
     }
 `;
 

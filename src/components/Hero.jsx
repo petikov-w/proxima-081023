@@ -17,6 +17,7 @@ const HeroSection = styled.div`
    @media ${device.mobileM} {
      flex-direction: column;
      align-items: center;
+     margin-bottom: 40px;
    }
 `;
 
@@ -71,11 +72,7 @@ const HeroBoxLeftButton = styled.img`
 
     &:hover {
       opacity: 0.7;
-    }
-    @media ${device.mobileM} {
-     width: 70%;     
-   }  
-   
+    }     
 `; 
 
 const HeroBoxRight = styled.div`
@@ -87,6 +84,7 @@ const HeroBoxRight = styled.div`
      flex-direction: column;
      width: 100%;
      align-items: center;
+     margin-bottom: -50px;
    }
 `;
 
