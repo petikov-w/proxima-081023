@@ -51,16 +51,13 @@ const Question = styled.span`
  
 export const Header = () => {
   // ========================================================================    
-  const [open, setOpen] = useState(false);
+  const [modalActiv, setModalActiv ] = useState(false);  
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setModalActiv(true);
   };
 
  
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
   // ========================================================================
      
     return (
@@ -71,10 +68,8 @@ export const Header = () => {
                 <Telefon>+7 (495) 877-32-92</Telefon>
                 <Question onClick={handleClickOpen}>Есть вопросы? Задавайте.</Question>
               </InfoBox>          
-              {/* <Modal activ={modalActiv} setActiv={setModalActiv}/>   */}
-              
           </HeaderBox>         
-          <Dialog2 activ={open} />
+          <Dialog2 activ={modalActiv} setActiv={setModalActiv}/>
         </>
       );
 
