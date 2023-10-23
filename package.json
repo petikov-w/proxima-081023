@@ -11,10 +11,14 @@
     "lint": "eslint -c .eslintrc --ext .js,.jsx ./src",
     "lint-webpack": "eslint -c .eslintrc --ext .js,.jsx ./webpack"
   },
-  "dependencies": {    
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.14",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.17.0",
     "styled-components": "^6.0.7"
   },
   "devDependencies": {

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import logo from '../assets/images/logo_proxima.png';
 
 import {device, size_screen} from './device';
+// import Dialog from './Dialog';
+import {Dialog2} from './Dialog2';
 
 
 const HeaderBox = styled.div`
@@ -46,23 +48,33 @@ const Question = styled.span`
     color: #f86a3a;
    }
 `;
-   
-
-
+ 
 export const Header = () => {
   // ========================================================================    
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+ 
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
   // ========================================================================
-    
+     
     return (
         <>               
           <HeaderBox>
               <img src={logo} alt="logo" />
               <InfoBox>
                 <Telefon>+7 (495) 877-32-92</Telefon>
-                <Question>Есть вопросы? Задавайте.</Question>
-              </InfoBox>
+                <Question onClick={handleClickOpen}>Есть вопросы? Задавайте.</Question>
+              </InfoBox>          
+              {/* <Modal activ={modalActiv} setActiv={setModalActiv}/>   */}
               
           </HeaderBox>         
+          <Dialog2 activ={open} />
         </>
       );
 
