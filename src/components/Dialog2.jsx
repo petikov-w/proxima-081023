@@ -18,25 +18,22 @@ const ButtonImage = styled.img`
 
 
 export const Dialog2 = (props) => {
+  // let formData = new FormData();
+  //     formData.append('name', in_name.value);
+  //     formData.append('telefon', in_telefon.value);
+  //     formData.append('subject', "Заказ доставки газа");
+     
+  const ggy = ()=>{
+  };
   const {activ, setActiv} = props;
        return (
           <>
-            <Dialog open={activ}  onClick={()=>setActiv(false)}
-             PaperProps={{
-               sx: {
-                 borderRadius:'20px',
-                 width: '400px',
-                 //display: 'flex',
-                //  flexDirection: 'column',
-                // alignItems: 'flex-start',
-               },
-             }
-             
-             }>
+            <Dialog open={activ}  onClick={()=>setActiv(false)} onSubmit={ggy} 
+             PaperProps={{ sx: {borderRadius:'20px', width: '400px'}}}>
             <div onClick={e=> e.stopPropagation()}>
               <DialogTitle>Задайте свой вопрос</DialogTitle>
               <DialogContent>
-                <TextField margin="dense" id="name" placeholder="ИМЯ" fullWidth
+                <TextField margin="dense" id="name" placeholder="ИМЯ" fullWidth 
                 InputProps={{ sx: { borderRadius:'14px' }}}
                  />
                 <TextField margin="dense" id="telefon" placeholder="ТЕЛЕФОН"fullWidth
@@ -50,8 +47,8 @@ export const Dialog2 = (props) => {
                            fullWidth
                            InputProps={{ sx: { borderRadius:'14px' }}} />
               </DialogContent>
-              <DialogActions>
-                <ButtonImage src={ButtonQuestion} onClick={()=>setActiv(false)}/>
+              <DialogActions sx={{ width: 'auto', display: 'flex', justifyContent: 'center' }}>
+                <ButtonImage src={ButtonQuestion} type="submit" onClick={()=>setActiv(false)}/>
               </DialogActions>
               </div>
             </Dialog>
