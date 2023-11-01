@@ -9,6 +9,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
 import ButtonQuestion from '../assets/images/button-question.png';
+import { Typography } from '@mui/material';
 
 
 const ButtonImage = styled.img`   
@@ -24,6 +25,7 @@ export const Dialog2 = (props) => {
   //     formData.append('subject', "Заказ доставки газа");
      
   const ggy = ()=>{
+    return console.log('Привет')
   };
   const {activ, setActiv} = props;
        return (
@@ -31,9 +33,13 @@ export const Dialog2 = (props) => {
             <Dialog open={activ}  onClick={()=>setActiv(false)} onSubmit={ggy} 
              PaperProps={{ sx: {borderRadius:'20px', width: '400px'}}}>
             <div onClick={e=> e.stopPropagation()}>
-              <DialogTitle>Задайте свой вопрос</DialogTitle>
+              <DialogTitle>
+                <Typography sx={{ fontFamily: 'RussoOne', fontSize: '20px', color: 'var(--master-color)', textAlign: 'center'}}>
+                  Задайте свой вопрос
+                </Typography>
+              </DialogTitle>
               <DialogContent>
-                <TextField margin="dense" id="name" placeholder="ИМЯ" fullWidth 
+                <TextField margin="dense" id="name" placeholder="ИМЯ" fullWidth sx={{ borderColor: 'red'}} 
                 InputProps={{ sx: { borderRadius:'14px' }}}
                  />
                 <TextField margin="dense" id="telefon" placeholder="ТЕЛЕФОН"fullWidth
