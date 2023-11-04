@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -7,9 +7,11 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 // import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Typography } from '@mui/material';
 
 import ButtonQuestion from '../assets/images/button-question.png';
-import { Typography } from '@mui/material';
+
+
 
 
 const ButtonImage = styled.img`   
@@ -19,18 +21,27 @@ const ButtonImage = styled.img`
 
 
 export const Dialog2 = (props) => {
+  const [inputName, setInputName] = useState('');
+
   // let formData = new FormData();
   //     formData.append('name', in_name.value);
   //     formData.append('telefon', in_telefon.value);
   //     formData.append('subject', "Заказ доставки газа");
-     
-  const ggy = ()=>{
-    return console.log('Привет')
+
+  const inputNameHandler = (e) => {
+        setInputName(e.target.value);
   };
+  const submitHandler = (event) => {
+        event.preventDefault();
+        console.log('---->>> ',inputName);
+  };
+
+   
   const {activ, setActiv} = props;
        return (
           <>
-            <Dialog open={activ}  onClick={()=>setActiv(false)} onSubmit={ggy} 
+          <form action="" onSubmit={submitHandler}>
+          <Dialog open={activ}  onClick={()=>setActiv(false)} 
              PaperProps={{ sx: {borderRadius:'20px', width: '400px'}}}>
             <div onClick={e=> e.stopPropagation()}>
               <DialogTitle>
@@ -40,7 +51,7 @@ export const Dialog2 = (props) => {
               </DialogTitle>
               <DialogContent>
                 <TextField margin="dense" id="name" placeholder="ИМЯ" fullWidth sx={{ borderColor: 'red'}} 
-                InputProps={{ sx: { borderRadius:'14px' }}}
+                InputProps={{ sx: { borderRadius:'14px' }}} onChange={inputNameHandler}
                  />
                 <TextField margin="dense" id="telefon" placeholder="ТЕЛЕФОН"fullWidth
                  InputProps={{ sx: { borderRadius:'14px' }}} />
@@ -58,6 +69,8 @@ export const Dialog2 = (props) => {
               </DialogActions>
               </div>
             </Dialog>
+          </form>
+            
           </>       
     );
   };
