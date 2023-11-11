@@ -23,7 +23,7 @@ const ButtonImage = styled.img`
 export const Dialog2 = (props) => {
   const [inputName, setInputName] = useState('');
   const [inputTelefon, setInputTelefon] = useState('');
-
+  const [inputQuestion, setInputQuestion] = useState('');
   // let formData = new FormData();
   //     formData.append('name', in_name.value);
   //     formData.append('telefon', in_telefon.value);
@@ -37,10 +37,15 @@ export const Dialog2 = (props) => {
     setInputTelefon(e.target.value);
   };
 
+  const inputQuestionHandler = (e) => {
+    setInputQuestion(e.target.value);
+  };
+  
   const submitHandler = (event) => {
         event.preventDefault();
         console.log('-- name -->>> ',inputName);
         console.log('-- telefon -->>> ',inputTelefon);
+        console.log('-- question -->>> ',inputQuestion);
   };
 
    
@@ -68,10 +73,11 @@ export const Dialog2 = (props) => {
                            id="question" 
                            placeholder="ВОПРОС"
                            rows={5}
-                           rowsMax={10}
+                           rowsmax={10}
                            multiline
                            fullWidth
-                           InputProps={{ sx: { borderRadius:'14px' }}} />
+                           InputProps={{ sx: { borderRadius:'14px' }}} 
+                           onChange={inputQuestionHandler}/>
               </DialogContent>
               <DialogActions sx={{ width: 'auto', display: 'flex', justifyContent: 'center' }}>
                 <Button type="submit" variant="contained" color="primary" onClick={()=>setActiv(false)}>
