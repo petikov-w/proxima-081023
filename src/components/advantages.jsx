@@ -33,8 +33,17 @@ const AdvantagesCard = styled.div`
     flex-direction: column;
 `;
 
+// const AdvantagesCardImage = styled('img', {
+//   shouldForwardProp: (prop) => prop !== 'props.margintop'})(({ margintop }) => ({
+//   backgroundColor: margintop ? margintop : '-30px',
+// }));
+
+    
+ 
+
 const AdvantagesCardImage = styled.img`
-   margin-top: ${(props) => (props.mtop ? props.mtop : '-30px')}; 
+
+   margin-top: ${(props) => (props.margintop ? props.margintop : '-30px')}; 
 `;
 
 const AdvantagesCardTitle = styled.p`
@@ -87,12 +96,12 @@ export const AdvantagesBox = () => {
 
   // =========================================================================
     return (
-        <>               
+        <>    
          <AdvantagesSection>
           {
             Advante.map((item, index) => (
               <AdvantagesCard key={index}>
-                <AdvantagesCardImage src={item.img}  mtop={item.mtop} />            
+                <AdvantagesCardImage src={item.img}  margintop={item.mtop} />            
                 <AdvantagesCardTitle>{item.title}</AdvantagesCardTitle>
                 <AdvantagesCardSubTitle>{item.subtitle}</AdvantagesCardSubTitle>
             </AdvantagesCard>

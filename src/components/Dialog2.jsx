@@ -12,10 +12,8 @@ import { Typography } from '@mui/material';
 import ButtonQuestion from '../assets/images/button-question.png';
 
 
-
-
 const ButtonImage = styled.img`   
-   width: 80%;
+   width: 100%;
    cursor: pointer;
 `;
 
@@ -80,11 +78,18 @@ export const Dialog2 = (props) => {
                            onChange={inputQuestionHandler}/>
               </DialogContent>
               <DialogActions sx={{ width: 'auto', display: 'flex', justifyContent: 'center' }}>
-                <Button type="submit" variant="contained" color="primary" onClick={()=>setActiv(false)}>
-                  Signup
+             
+                <Button sx={{ background: `url(${ButtonQuestion})`,
+                                             backgroundRepeat: 'no-repeat',
+                                             backgroundSize: 'cover',
+                                             width: '80%',
+                                             height: '70px',
+                                             cursor: 'pointer',
+                                             }} 
+                                             onClick={()=>setActiv(false)}
+                                             type="submit">                       
                 </Button>
-                {/* <ButtonImage src={ButtonQuestion} type="submit" /> */}
-                {/* <ButtonImage src={ButtonQuestion} type="submit" onClick={()=>setActiv(false)}/> */}
+                
               </DialogActions>
               </div>
               </form>
@@ -94,3 +99,11 @@ export const Dialog2 = (props) => {
           </>       
     );
   };
+
+
+
+     /* <Button sx={{ background: `url(${ButtonQuestion})` }} type="submit"  onClick={()=>setActiv(false)}>   */
+  /* <a href="#" onClick="document.send.submit();"> 
+                /* <a href="#" onClick="document.send.submit();">
+                    <ButtonImage src={ButtonQuestion} type="submit" onClick={()=>setActiv(false)}></ButtonImage>
+                </a> */         
