@@ -12,10 +12,31 @@ import { Typography } from '@mui/material';
 import ButtonQuestion from '../assets/images/button-question.png';
 
 
+
 const ButtonImage = styled.img`   
    width: 100%;
    cursor: pointer;
 `;
+
+const titleSX = {
+  fontFamily: 'RussoOne', 
+  fontSize: '20px', 
+  color: 'var(--master-color)', 
+  textAlign: 'center',
+};
+
+const buttonSX = {
+  background: `url(${ButtonQuestion})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'contain',  
+  width: '80%',
+  height: '70px',
+  cursor: 'pointer',
+  // width : {xs: '60%', sm: '80%'},
+  ':hover': {
+   opacity: '0.7',
+  },  
+};
 
 
 export const Dialog2 = (props) => {
@@ -57,9 +78,7 @@ export const Dialog2 = (props) => {
             <form action="" onSubmit={submitHandler}>
             <div onClick={e=> e.stopPropagation()}>
               <DialogTitle>
-                <Typography sx={{ fontFamily: 'RussoOne', fontSize: '20px', color: 'var(--master-color)', textAlign: 'center'}}>
-                  Задайте свой вопрос
-                </Typography>
+                <Typography sx={titleSX}>Задайте свой вопрос</Typography>
               </DialogTitle>
               <DialogContent>
                 <TextField margin="dense" id="name" placeholder="ИМЯ" fullWidth sx={{ borderColor: 'red'}} 
@@ -79,16 +98,7 @@ export const Dialog2 = (props) => {
               </DialogContent>
               <DialogActions sx={{ width: 'auto', display: 'flex', justifyContent: 'center' }}>
              
-                <Button sx={{ background: `url(${ButtonQuestion})`,
-                                             backgroundRepeat: 'no-repeat',
-                                             backgroundSize: 'cover',
-                                             width: '80%',
-                                             height: '70px',
-                                             cursor: 'pointer',
-                                             }} 
-                                             onClick={()=>setActiv(false)}
-                                             type="submit">                       
-                </Button>
+                <Button sx={buttonSX} onClick={()=>setActiv(false)} type="submit"></Button>
                 
               </DialogActions>
               </div>
