@@ -110,10 +110,3 @@ export const Dialog2 = (props) => {
     );
   };
 
-
-
-     /* <Button sx={{ background: `url(${ButtonQuestion})` }} type="submit"  onClick={()=>setActiv(false)}>   */
-  /* <a href="#" onClick="document.send.submit();"> 
-                /* <a href="#" onClick="document.send.submit();">
-                    <ButtonImage src={ButtonQuestion} type="submit" onClick={()=>setActiv(false)}></ButtonImage>
-                </a> */         
