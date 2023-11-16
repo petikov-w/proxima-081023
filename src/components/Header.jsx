@@ -69,7 +69,7 @@ export const Header = () => {
                 <Question onClick={handleClickOpen}>Есть вопросы? Задавайте.</Question>
               </InfoBox>          
           </HeaderBox>         
-          <Dialog2 activ={modalActiv} setActiv={setModalActiv}/>
+          <Dialog2 activ={modalActiv} setActiv={setModalActiv} />
         </>
       );
 
