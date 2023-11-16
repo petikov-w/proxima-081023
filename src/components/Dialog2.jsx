@@ -68,7 +68,7 @@ export const Dialog2 = (props) => {
   };
 
    
-  const {activ, setActiv} = props;
+  const {activ, setActiv, setValues} = props;
        return (
           <>
           
@@ -96,16 +96,12 @@ export const Dialog2 = (props) => {
                            InputProps={{ sx: { borderRadius:'14px' }}} 
                            onChange={inputQuestionHandler}/>
               </DialogContent>
-              <DialogActions sx={{ width: 'auto', display: 'flex', justifyContent: 'center' }}>
-             
-                <Button sx={buttonSX} onClick={()=>setActiv(false)} type="submit"></Button>
-                
+              <DialogActions sx={{ width: 'auto', display: 'flex', justifyContent: 'center' }}>             
+                <Button sx={buttonSX} onClick={()=>setActiv(false)} type="submit"></Button>                
               </DialogActions>
               </div>
               </form>
-            </Dialog>
-          
-            
+            </Dialog>         
           </>       
     );
   };
