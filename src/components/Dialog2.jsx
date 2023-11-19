@@ -65,6 +65,10 @@ export const Dialog2 = (props) => {
         console.log('-- name -->>> ',inputName);
         console.log('-- telefon -->>> ',inputTelefon);
         console.log('-- question -->>> ',inputQuestion);
+        let formData = new FormData();
+        formData.append('name', inputName);
+        formData.append('telefon', inputTelefon);
+        formData.append('question', inputQuestion);
   };
 
    
@@ -106,3 +110,15 @@ export const Dialog2 = (props) => {
     );
   };
 
+//   axios({
+//     method: "post",
+//     url: `${api}/sendmail`,
+//     data: formData,
+//     headers: { "Content-Type": "multipart/form-data" }
+// })
+//     .then(function (response) {
+//         console.log('actions --->>> ', response.data);
+//     })
+//     .catch(function (error) {
+//         console.log('error --->>> ', error.data);
+//     })
