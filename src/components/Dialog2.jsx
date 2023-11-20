@@ -8,10 +8,11 @@ import DialogContent from '@mui/material/DialogContent';
 // import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Typography } from '@mui/material';
+import axios from 'axios';
 
 import ButtonQuestion from '../assets/images/button-question.png';
 
-
+const api = 'https://api.proxima2.kroxdev.ru';
 
 const ButtonImage = styled.img`   
    width: 100%;
@@ -40,13 +41,12 @@ const buttonSX = {
 
 
 export const Dialog2 = (props) => {
+
+  const {activ, setActiv, setValues} = props;
   const [inputName, setInputName] = useState('');
   const [inputTelefon, setInputTelefon] = useState('');
   const [inputQuestion, setInputQuestion] = useState('');
-  // let formData = new FormData();
-  //     formData.append('name', in_name.value);
-  //     formData.append('telefon', in_telefon.value);
-  //     formData.append('subject', "Заказ доставки газа");
+  
 
   const inputNameHandler = (e) => {
         setInputName(e.target.value);
@@ -60,19 +60,41 @@ export const Dialog2 = (props) => {
     setInputQuestion(e.target.value);
   };
   
-  const submitHandler = (event) => {
+  // const submitHandler = (event) => {
+    const submitHandler = async(event) => {
         event.preventDefault();
         console.log('-- name -->>> ',inputName);
         console.log('-- telefon -->>> ',inputTelefon);
         console.log('-- question -->>> ',inputQuestion);
+
         let formData = new FormData();
         formData.append('name', inputName);
         formData.append('telefon', inputTelefon);
         formData.append('question', inputQuestion);
-  };
+        // axios.post(`${api}`, formData, { 'Content-Type': 'multipart/form-data' })
+        // .then(function (response) {
+        //     console.log('actions --->>> ', response.data);
+        // })
+        // .catch(function (error) {
+        //     console.log('error --->>> ', error.data);
+        // });
 
-   
-  const {activ, setActiv, setValues} = props;
+
+        try {
+          // make axios post request
+          const response = await axios({
+            method: 'post',
+            url: `${api}`,
+            data: formData,
+            headers: { 'Content-Type': 'multipart/form-data' },
+          });
+        } catch(error) {
+          console.log(error);
+        }
+      };
+
+  //};
+
        return (
           <>
           
@@ -108,17 +130,35 @@ export const Dialog2 = (props) => {
             </Dialog>         
           </>       
     );
-  };
+  };  
 
-//   axios({
-//     method: "post",
-//     url: `${api}/sendmail`,
-//     data: formData,
-//     headers: { "Content-Type": "multipart/form-data" }
+
+
+
+
+
+
+//   axios({ method: 'post',
+//   url: `${api}`,
+//   // url: `${api}/sendmail`,
+//   data: formData,
+//   headers: { 'Content-Type': 'multipart/form-data' }})
+// .then(function (response) {
+// console.log('actions --->>> ', response.data);
 // })
-//     .then(function (response) {
-//         console.log('actions --->>> ', response.data);
-//     })
-//     .catch(function (error) {
-//         console.log('error --->>> ', error.data);
-//     })
+// .catch(function (error) {
+// console.log('error --->>> ', error.data);
+// })
+
+
+
+// return axios({
+//   method: 'post',
+//   url: `${process.env.REACT_APP_POST_URL}`,
+//   data: formData,
+//   headers: {'Content-Type': 'multipart/form-data' }
+// }).then((data)=>{
+//   console.log(data);
+// })
+
+// }
