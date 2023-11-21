@@ -62,7 +62,7 @@ export const Dialog2 = (props) => {
   
   // const submitHandler = (event) => {
     const submitHandler = async(event) => {
-        event.preventDefault();
+        // event.preventDefault();
         console.log('-- name -->>> ',inputName);
         console.log('-- telefon -->>> ',inputTelefon);
         console.log('-- question -->>> ',inputQuestion);
@@ -88,9 +88,12 @@ export const Dialog2 = (props) => {
             data: formData,
             headers: { 'Content-Type': 'multipart/form-data' },
           });
+          console.log('== x x x ==');
         } catch(error) {
           console.log(error);
         }
+
+        
       };
 
   //};
