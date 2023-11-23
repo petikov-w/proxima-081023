@@ -6,7 +6,7 @@ import {
 
 // import { SinglePage } from './pages/SinglePage';
 import { HomePage } from './pages/HomePage.jsx';
-// import { NotFoundPage } from './pages/NotFoundPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 import { Layout } from './components/layout.jsx';
 // import { PremierPage } from './pages/PremierPage';
 // import { SerialPage } from './pages/SerialPage';
@@ -17,7 +17,7 @@ export const App = () => {
     const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/" element={<Layout />} >
             <Route index element={<HomePage />} />
-            
+            <Route path="*" element={<NotFoundPage />} />            
         </Route>
     ));
 
