@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import {useNavigate, useLocation} from 'react-router-dom';
+
+
 
 import {device, size_screen} from './device';
 
@@ -30,12 +33,18 @@ const FooterItem = styled.span`
 
 export const Footer = () => {
   // ========================================================================
+  const navigate = useNavigate();
+  const location = useLocation();
+  // console.log('location:>> ', location);
   // =========================================================================
     return (
         <>               
           <FooterBox>
-             <FooterItem>Политика конфиденциальности</FooterItem>
-             <FooterItem>Пользовательское соглашение</FooterItem>
+             {location.pathname === '/policy' ? <FooterItem onClick={()=> navigate('/')}>Вернуться на главную</FooterItem>
+                                     : <FooterItem onClick={()=> navigate('/policy')}>Политика конфиденциальности</FooterItem>}
+             {location.pathname === '/useragreement' ? <FooterItem onClick={()=> navigate('/')}>Вернуться на главную</FooterItem>
+                                     : <FooterItem onClick={()=> navigate('/useragreement')}>Пользовательское соглашение</FooterItem>} 
+                         
           </FooterBox>
          
         </>

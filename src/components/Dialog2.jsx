@@ -1,16 +1,21 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
+import {useNavigate} from 'react-router-dom';
+
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-// import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Typography } from '@mui/material';
 import axios from 'axios';
 
+import {Link } from '@mui/material';
+
 import ButtonQuestion from '../assets/images/button-question.png';
+
+
 
 const api = 'https://api.proxima2.kroxdev.ru';
 
@@ -41,6 +46,7 @@ const buttonSX = {
 
 
 export const Dialog2 = (props) => {
+  const navigate = useNavigate();
 
   const {activ, setActiv, setValues} = props;
   const [inputName, setInputName] = useState('');
@@ -92,7 +98,6 @@ export const Dialog2 = (props) => {
         } catch(error) {
           console.log(error);
         }
-
         
       };
 
@@ -100,8 +105,7 @@ export const Dialog2 = (props) => {
 
        return (
           <>
-          
-          <Dialog open={activ}  onClick={()=>setActiv(false)} 
+             <Dialog open={activ}  onClick={()=>setActiv(false)} 
              PaperProps={{ sx: {borderRadius:'20px', width: '400px'}}}>
 
             <form action="" onSubmit={submitHandler}>
@@ -125,8 +129,9 @@ export const Dialog2 = (props) => {
                            InputProps={{ sx: { borderRadius:'14px' }}} 
                            onChange={inputQuestionHandler}/>
               </DialogContent>
-              <DialogActions sx={{ width: 'auto', display: 'flex', justifyContent: 'center' }}>             
-                <Button sx={buttonSX} onClick={()=>setActiv(false)} type="submit"></Button>                
+              <DialogActions sx={{ width: 'auto', display: 'flex', justifyContent: 'center' }}>         
+                <Button sx={buttonSX} onClick={()=>{setActiv(false);
+                                                    navigate('/thankyou')}} type="submit"></Button>                                
               </DialogActions>
               </div>
               </form>
@@ -136,7 +141,7 @@ export const Dialog2 = (props) => {
   };  
 
 
-
+  //hashHistory.push(`/mySite/accountview?id=${account.AccountName}`)}
 
 
 

@@ -68,7 +68,8 @@ export const Header = () => {
                 <Telefon>+7 (495) 877-32-92</Telefon>
                 <Question onClick={handleClickOpen}>Есть вопросы? Задавайте.</Question>
               </InfoBox>          
-          </HeaderBox>         
+          </HeaderBox>      
+
           <Dialog2 activ={modalActiv} setActiv={setModalActiv} />
         </>
       );
