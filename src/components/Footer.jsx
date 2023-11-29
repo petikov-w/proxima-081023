@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {useNavigate, useLocation} from 'react-router-dom';
 
+import {Telefon} from '@components/Telefon';
 
 
 import {device, size_screen} from './device';
@@ -35,6 +36,7 @@ export const Footer = () => {
   // ========================================================================
   const navigate = useNavigate();
   const location = useLocation();
+  const tel = '89134551289'
   // console.log('location:>> ', location);
   // =========================================================================
     return (
@@ -43,8 +45,8 @@ export const Footer = () => {
              {location.pathname === '/policy' ? <FooterItem onClick={()=> navigate('/')}>Вернуться на главную</FooterItem>
                                      : <FooterItem onClick={()=> navigate('/policy')}>Политика конфиденциальности</FooterItem>}
              {location.pathname === '/useragreement' ? <FooterItem onClick={()=> navigate('/')}>Вернуться на главную</FooterItem>
-                                     : <FooterItem onClick={()=> navigate('/useragreement')}>Пользовательское соглашение</FooterItem>} 
-                         
+                                     : <FooterItem onClick={()=> navigate('/useragreement')}>Пользовательское соглашение</FooterItem>}
+              <Telefon phone={tel} />
           </FooterBox>
          
         </>
