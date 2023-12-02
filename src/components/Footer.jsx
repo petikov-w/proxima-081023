@@ -2,10 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {useNavigate, useLocation} from 'react-router-dom';
 
-import {Telefon} from '@components/Telefon';
-
-
-import {device, size_screen} from './device';
+import {device} from './device';
 
 const FooterBox = styled.div`
    display: flex;
@@ -18,7 +15,7 @@ const FooterBox = styled.div`
 `;
 
 const FooterItem = styled.span`
-    font-family: OpenSans;
+    font-family: OpenSans, serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 19px;
@@ -36,8 +33,7 @@ export const Footer = () => {
   // ========================================================================
   const navigate = useNavigate();
   const location = useLocation();
-  const tel = '89134551289'
-  // console.log('location:>> ', location);
+
   // =========================================================================
     return (
         <>               
@@ -46,7 +42,6 @@ export const Footer = () => {
                                      : <FooterItem onClick={()=> navigate('/policy')}>Политика конфиденциальности</FooterItem>}
              {location.pathname === '/useragreement' ? <FooterItem onClick={()=> navigate('/')}>Вернуться на главную</FooterItem>
                                      : <FooterItem onClick={()=> navigate('/useragreement')}>Пользовательское соглашение</FooterItem>}
-              <Telefon phone={tel} />
           </FooterBox>
          
         </>

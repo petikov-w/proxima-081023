@@ -1,47 +1,28 @@
 import React from 'react';
-//import styled from 'styled-components';
+import { Link } from '@mui/material';
 
 export const Telefon = (props) => {
+
     // ========================================================================
-    const {phone} = props
+    const {phone, styleNumber} = props;
+
     const PhoneNumberFormat = (phone) => {
-        let temp_number;
-        let pref;
-        temp_number = `${phone}`;
-        if (temp_number[0] == '8') {
-            pref = temp_number.substr(0, 1)}
-        if (temp_number[0] == '7') {
-            pref = '+' + temp_number.substr(0, 1)
-        }
-        temp_number = temp_number.substr(-10);
-        return `${pref} (${temp_number.substr(0, 3)})
-                ${temp_number.substr(3, 3)}-${temp_number.substr(6, 2)}
-                -${temp_number.substr(8, 2)}`;
+        const temp_number = `${phone}`.replace(/[-+()\s]/g, '');
+        const pref = temp_number.slice(0,-10) === '8' ? '+7' : `+${temp_number.slice(0,-10)}`;
+        const numbers = temp_number.slice(-10);
+    return `${pref} (${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(6, 8)}-${numbers.slice(8, 10)}`;
     };
 
     const PhoneNumberLink = (phone) => {
-        let temp_number;
-        let pref;
-        temp_number = `${phone}`;
-        if (temp_number[0] == '8') {
-            pref = temp_number.substr(0, 1);
-        }
-        if (temp_number[0] == '7') {
-            pref = '+' + temp_number.substr(0, 1);
-        }
-        // temp_number = temp_number.substr(-10);
-        return `${pref}${temp_number.substr(-10)}`;
+        return `${PhoneNumberFormat(phone)}`.replace(/[-()\s]/g, '');
     };
-    const telas = `tel:${PhoneNumberLink(phone)}`;
     // ========================================================================
+
     return (
         <>
-        {/*<span>{PhoneNumberFormat(phone)}</span>*/}
-            <a href = {telas} >{ PhoneNumberFormat(phone) }</a>
+            <Link href = {`tel:${PhoneNumberLink(phone)}`} sx={styleNumber}>{ PhoneNumberFormat(phone) }</Link>
         </>
     );
 
 };
-
-
 

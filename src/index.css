@@ -5,8 +5,8 @@
     /* Цвета */
     --master-color: #EF5221;
     --slave-color: #ffffff;
-
-
+    --master-font: OpenSans;
+    --slave-font: RussoOne;
     --desktop: '2560px';
 }
 

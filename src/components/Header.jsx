@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import {Telefon} from '@components/Telefon';
+
 import logo from '../assets/images/logo_proxima.png';
 
-import {device, size_screen} from './device';
-// import Dialog from './Dialog';
 import {Dialog2} from './Dialog2';
+import {device} from './device';
+
 
 
 const HeaderBox = styled.div`
@@ -14,7 +16,6 @@ const HeaderBox = styled.div`
    align-items: center;
    color: var(--slave-color);
    height: 90px;
-
    @media ${device.mobileM} {
      flex-direction: column;    
      margin-top: 30px;
@@ -28,14 +29,6 @@ const InfoBox = styled.div`
     align-items: flex-start;
 `;
 
-const Telefon = styled.span`
-   font-family: RussoOne;
-   font-size: 24px;
-   font-weight: 400;
-   color: var(--slave-color); 
-   margin-bottom: 5px;
-`; 
-
 const Question = styled.span`
    font-family: OpenSans;
    font-size: 16px;
@@ -48,7 +41,21 @@ const Question = styled.span`
     color: #f86a3a;
    }
 `;
- 
+
+const numberSX = {
+    fontFamily: 'var(--slave-font)',
+    fontSize: '24px',
+    lineHeight: '29px',
+    letterSpacing: '2px',
+    fontWeight: '400',
+    color: 'var(--slave-color)',
+    textDecoration: 'none',
+    marginBottom: '5px',
+    '&:hover': {
+        opacity: '0.6',
+    },
+};
+
 export const Header = () => {
   // ========================================================================    
   const [modalActiv, setModalActiv ] = useState(false);  
@@ -57,7 +64,7 @@ export const Header = () => {
     setModalActiv(true);
   };
 
- 
+    const tel = '98916 45 512 89';
   // ========================================================================
      
     return (
@@ -65,7 +72,8 @@ export const Header = () => {
           <HeaderBox>
               <img src={logo} alt="logo" />
               <InfoBox>
-                <Telefon>+7 (495) 877-32-92</Telefon>
+                  <Telefon phone={tel} styleNumber={numberSX} />
+                {/*<Telefon>+7 (495) 877-32-92</Telefon>*/}
                 <Question onClick={handleClickOpen}>Есть вопросы? Задавайте.</Question>
               </InfoBox>          
           </HeaderBox>      
