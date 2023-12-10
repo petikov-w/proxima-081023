@@ -72,7 +72,8 @@ export const Header = () => {
           <HeaderBox>
               <img src={logo} alt="logo" />
               <InfoBox>
-                  <Telefon phone={tel} styleNumber={numberSX} />
+                  <Telefon phone={tel} variant="telefon" />
+                  {/*<Telefon phone={tel} styleNumber={numberSX} />*/}
                 {/*<Telefon>+7 (495) 877-32-92</Telefon>*/}
                 <Question onClick={handleClickOpen}>Есть вопросы? Задавайте.</Question>
               </InfoBox>          

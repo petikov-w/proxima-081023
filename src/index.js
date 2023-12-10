@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ThemeProvider } from '@emotion/react';
+
+import {themeProxima} from './styles/themeProxima';
 
 import './index.css';
 import './assets/fonts/Fonts.imports';
@@ -12,6 +15,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <React.StrictMode>
-        <App />
+        <ThemeProvider theme={themeProxima}>
+            <App />
+        </ThemeProvider>
     </React.StrictMode>
 );
