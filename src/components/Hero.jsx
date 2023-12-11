@@ -3,11 +3,14 @@ import styled from 'styled-components';
 
 import car from '@images/car_1.png';
 import button from '@images/btn_zakaz_gaz.png';
-import {Typography} from '@mui/material';
+import {Typography, useTheme} from '@mui/material';
+
+//import {themeProxima} from '../styles/themeProxima';
 
 import { InfoGaz } from './InfoGaz';
 
 import {device, size_screen} from './device';
+
 
 
 
@@ -91,17 +94,34 @@ const HeroBoxRight = styled.div`
    }
 `;
 
-const HeroBoxRightImage = styled.img`   
-   // @media ${device.mobileM} {
-   //   width: 98%;
-   // }
+// const HeroBoxRightImage2 = styled.img(({theme}) => ({
+//     [breakpoints.down(0)]: {
+//         width: '98%',
+//     },
+// }));
 
-`;
+
+//
+// const HeroBoxRightImage = styled.img()`
+//    // @media ${device.mobileM} {
+//    //   width: 98%;
+//    // }
+// },
+//
+// `;
 
 
 export const HeroBox = () => {
     // ========================================================================
-  
+    const theme = useTheme();
+    // const breakpoints = theme.breakpoints;
+    console.log('--theme-->>>> ',theme);
+
+    const HeroBoxRightImage2 = styled.img(({theme}) => ({
+        [theme.breakpoints.down('mobile')]: {
+            width: '98%',
+        },
+    }));
     // =========================================================================
       return (
           <>        
@@ -113,7 +133,8 @@ export const HeroBox = () => {
               <HeroBoxLeftButton src={button}></HeroBoxLeftButton>
             </HeroBoxLeft>
             <HeroBoxRight>
-              <HeroBoxRightImage src={car} sx={{width: {sx: '60%' }}}></HeroBoxRightImage>
+                <HeroBoxRightImage2 src={car} ></HeroBoxRightImage2>
+              {/*<HeroBoxRightImage2 src={car} sx={{width: {mobile: '60%' }}}></HeroBoxRightImage2>*/}
             </HeroBoxRight>
           </HeroSection>
           </>
