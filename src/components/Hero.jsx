@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import car from '@images/car_1.png';
 // import zzz from '../assets/images/car_1.png'
 import button from '@images/btn_zakaz_gaz.png';
-import {Typography, Card, CardMedia, useTheme, Box} from '@mui/material';
+import {Typography, CardMedia, useTheme, Box} from '@mui/material';
 
 //import {themeProxima} from '../styles/themeProxima';
 
 import { InfoGaz } from './InfoGaz';
 
-import {device, size_screen} from './device';
+import {device} from './device';
 
 
 
