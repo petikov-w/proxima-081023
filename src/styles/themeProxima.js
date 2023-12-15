@@ -26,6 +26,12 @@ export let themeProxima= createTheme({
 
 themeProxima = createTheme(themeProxima, {
     typography: {
+        fontMaster: {
+            fontFamily: 'RussoOne',
+        },
+        fontSlave: {
+            fontFamily: 'OpenSans',
+        },
         text01: {
             fontFamily: 'RussoOne',
             color: themeProxima.palette.primary.main,
@@ -38,6 +44,7 @@ themeProxima = createTheme(themeProxima, {
             fontFamily: 'OpenSans',
             color: themeProxima.palette.secondary.main,
         },
+
     },
 });
 

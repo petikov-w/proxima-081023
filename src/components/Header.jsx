@@ -7,6 +7,9 @@ import logo from '../assets/images/logo_proxima.png';
 
 import {Dialog2} from './Dialog2';
 import {device} from './device';
+import {themeProxima} from '../styles/themeProxima';
+import {Box, CardMedia, useTheme} from '@mui/material';
+import car from '@images/car_1.png';
 
 
 
@@ -23,12 +26,6 @@ const HeaderBox = styled.div`
    }
 `;
 
-const InfoBox = styled.div`
-    display: flex;   
-    flex-direction: column;
-    align-items: flex-start;
-`;
-
 const Question = styled.span`
    font-family: OpenSans;
    font-size: 16px;
@@ -42,24 +39,37 @@ const Question = styled.span`
    }
 `;
 
-const numberSX = {
-    fontFamily: 'var(--slave-font)',
-    fontSize: '24px',
-    lineHeight: '29px',
-    letterSpacing: '2px',
-    fontWeight: '400',
-    color: 'var(--slave-color)',
-    textDecoration: 'none',
-    marginBottom: '5px',
-    '&:hover': {
-        opacity: '0.6',
-    },
-};
+
 
 export const Header = () => {
   // ========================================================================    
-  const [modalActiv, setModalActiv ] = useState(false);  
+  const [modalActiv, setModalActiv ] = useState(false);
+  const theme = useTheme();
 
+    const logoSX = {
+        width: 'auto',
+    };
+
+    const infoBox = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+    };
+
+
+    const numberSX = {
+        color: theme.palette.secondary.main,
+        fontFamily: theme.typography.fontMaster,
+        fontSize: '24px',
+        lineHeight: '29px',
+        letterSpacing: '2px',
+        fontWeight: '400',
+        textDecoration: 'none',
+        marginBottom: '5px',
+        '&:hover': {
+            opacity: '0.6',
+        },
+    };
   const handleClickOpen = () => {
     setModalActiv(true);
   };
@@ -70,13 +80,14 @@ export const Header = () => {
     return (
         <>               
           <HeaderBox>
-              <img src={logo} alt="logo" />
-              <InfoBox>
-                  <Telefon phone={tel} variant="telefon" />
-                  {/*<Telefon phone={tel} styleNumber={numberSX} />*/}
-                {/*<Telefon>+7 (495) 877-32-92</Telefon>*/}
-                <Question onClick={handleClickOpen}>Есть вопросы? Задавайте.</Question>
-              </InfoBox>          
+              <CardMedia component="img"
+                         image={logo}
+                         sx = {logoSX} />
+              {/*<img src={logo} alt="logo" />*/}
+              <Box sx={infoBox}>
+                  <Telefon phone={tel} styleNumber={numberSX} />
+                  <Question onClick={handleClickOpen}>Есть вопросы? Задавайте.</Question>
+              </Box>
           </HeaderBox>      
 
           <Dialog2 activ={modalActiv} setActiv={setModalActiv} />
