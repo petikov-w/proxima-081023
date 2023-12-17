@@ -41,6 +41,9 @@ export const LeftButtonSX= (theme) => ({
     cursor: 'pointer',
     marginBottom: '40px',
     marginTop: '40px',
+    '&:hover': {
+        opacity: '0.6',
+    },
     [theme.breakpoints.down('sm')]: { width: '85%' },
     [theme.breakpoints.up('sm')]: { width: '70%' },
 });
