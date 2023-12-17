@@ -2,29 +2,37 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import {Telefon} from '@components/Telefon';
+import {Box, CardMedia, Stack, useTheme} from '@mui/material';
 
 import logo from '../assets/images/logo_proxima.png';
 
+import {infoBox, logoSX, numberSX} from '../styles/header.styled';
+
 import {Dialog2} from './Dialog2';
+
 import {device} from './device';
-import {themeProxima} from '../styles/themeProxima';
-import {Box, CardMedia, useTheme} from '@mui/material';
-import car from '@images/car_1.png';
 
 
+const headerSX =(theme) => ({
+    color: theme.palette.secondary.main,
+    height: '90px',
+    [theme.breakpoints.down('sm')]: { direction: 'column' },
+    [theme.breakpoints.up('sm')]: { direction: 'row', alignItems: 'flex-start',
+                                        justifyContent: 'space-between' },
+});
 
-const HeaderBox = styled.div`
-   display: flex;   
-   justify-content: space-between;
-   align-items: center;
-   color: var(--slave-color);
-   height: 90px;
-   @media ${device.mobileM} {
-     flex-direction: column;    
-     margin-top: 30px;
-     margin-bottom: 60px;
-   }
-`;
+// const HeaderBox = styled.div`
+//    display: flex;
+//    justify-content: space-between;
+//    align-items: center;
+//    color: var(--slave-color);
+//    height: 90px;
+//    @media ${device.mobileM} {
+//      flex-direction: column;
+//      margin-top: 30px;
+//      margin-bottom: 60px;
+//    }
+// `;
 
 const Question = styled.span`
    font-family: OpenSans;
@@ -38,57 +46,29 @@ const Question = styled.span`
     color: #f86a3a;
    }
 `;
-
-
-
 export const Header = () => {
-  // ========================================================================    
-  const [modalActiv, setModalActiv ] = useState(false);
+  // ========================================================================
   const theme = useTheme();
-
-    const logoSX = {
-        width: 'auto',
-    };
-
-    const infoBox = {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-    };
-
-
-    const numberSX = {
-        color: theme.palette.secondary.main,
-        fontFamily: theme.typography.fontMaster,
-        fontSize: '24px',
-        lineHeight: '29px',
-        letterSpacing: '2px',
-        fontWeight: '400',
-        textDecoration: 'none',
-        marginBottom: '5px',
-        '&:hover': {
-            opacity: '0.6',
-        },
-    };
+  const [modalActiv, setModalActiv ] = useState(false);
   const handleClickOpen = () => {
     setModalActiv(true);
   };
-
-    const tel = '98916 45 512 89';
+  const tel = '98916 45 512 89';
   // ========================================================================
      
     return (
         <>               
-          <HeaderBox>
-              <CardMedia component="img"
-                         image={logo}
-                         sx = {logoSX} />
-              {/*<img src={logo} alt="logo" />*/}
-              <Box sx={infoBox}>
-                  <Telefon phone={tel} styleNumber={numberSX} />
-                  <Question onClick={handleClickOpen}>Есть вопросы? Задавайте.</Question>
-              </Box>
-          </HeaderBox>      
+          {/*<HeaderBox>*/}
+            <Stack sx={headerSX} >
+                  <CardMedia component="img"
+                             image={logo}
+                             sx = {logoSX} />
+                  <Box sx={infoBox}>
+                      <Telefon phone={tel} styleNumber={numberSX(theme)} />
+                      <Question onClick={handleClickOpen}>Есть вопросы? Задавайте.</Question>
+                  </Box>
+            </Stack>
+          {/*</HeaderBox>      */}
 
           <Dialog2 activ={modalActiv} setActiv={setModalActiv} />
         </>
