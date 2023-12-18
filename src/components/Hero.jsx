@@ -1,28 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
-
 import car from '@images/car_1.png';
-// import zzz from '../assets/images/car_1.png'
 import button from '@images/btn_zakaz_gaz.png';
-import {Typography, CardMedia, useTheme, Box} from '@mui/material';
+import {Typography, CardMedia, useTheme, Stack} from '@mui/material';
 
-//import {themeProxima} from '../styles/themeProxima';
-
-
-import {BoxLeftSX, BoxRightSX, LeftButtonSX, SectionSX, subtitleSX, titleSX} from '../styles/hero.styled';
+import {BoxLeftSX, BoxRightSX, imgCarSX, LeftButtonSX, sectionSX, subtitleSX, titleSX} from '../styles/hero.styled';
 
 import { InfoGaz } from './InfoGaz';
 
 
 export const HeroBox = () => {
     // ========================================================================
-    // const theme = useTheme();
-
+    const theme = useTheme();
     // =========================================================================
       return (
           <>
-          <Box sx={SectionSX}>
-            <Box sx={BoxLeftSX}>
+          <Stack sx={sectionSX} direction={{ xs: 'column', md: 'row' }}>
+            <Stack sx={BoxLeftSX}>
               <Typography variant="text01" sx={titleSX}>
                   Качественный газ для газгольдера
               </Typography>
@@ -32,16 +25,14 @@ export const HeroBox = () => {
               </Typography>
                 <CardMedia component="img"
                            image={button}
-                           sx={LeftButtonSX}/>
-            </Box>
-            <Box sx={BoxRightSX}>
+                           sx={LeftButtonSX(theme)}/>
+            </Stack>
+            <Stack sx={BoxRightSX}>
                 <CardMedia component="img"
                            image={car}
-                           sx={(theme) => ({
-                               [theme.breakpoints.down('sm')]: { width: '80%' },
-                           })}/>
-            </Box>
-          </Box>
+                           sx={imgCarSX}/>
+            </Stack>
+          </Stack>
           </>
         );
   };

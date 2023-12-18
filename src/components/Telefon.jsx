@@ -20,7 +20,6 @@ export const Telefon = (props) => {
 
     return (
         <>
-            {/*<Link href = {`tel:${PhoneNumberLink(phone)}`}  >{ PhoneNumberFormat(phone) }</Link>*/}
             <Link href = {`tel:${PhoneNumberLink(phone)}`} sx={styleNumber}>{ PhoneNumberFormat(phone) }</Link>
         </>
     );

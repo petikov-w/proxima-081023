@@ -1,30 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
-// import { device, size_screen } from '../src/components/device';
+import {Box} from '@mui/material';
 
 import { Header } from '@components/Header';
 import { Footer } from '@components/Footer';
 import { AdvantagesBox } from '@components/Advantages';
-
 import { HeroBox } from '@components/Hero';
 
-
-
-const Main = styled.div` 
-     min-height: calc(91.3vh - 85px - 22px);
-     padding-top: 1.5rem;
-     //padding-top: 1.5rem 0;
-`;
-
+// import { mainSX } from '@styles/pageHome.styled';
+import {mainSX} from '../styles/pageHome.styled';
 export const HomePage = () => {
 
     return (
         <>
-                <Header />
-                <Main>
+            <Header />
+                <Box sx={mainSX}>
                     <HeroBox />
                     <AdvantagesBox />
-                </Main>
+                </Box>
                 <Footer />
         </>
     );

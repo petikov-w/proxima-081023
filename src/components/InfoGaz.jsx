@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Divider, Stack} from '@mui/material';
 
 const InfoItems =  [
     {procent: '80%', gaz: 'пропана'},
@@ -7,10 +8,22 @@ const InfoItems =  [
     // {procent: '5%', gaz: 'метана'},
   ];
 
-  const InfoSection = styled.div`
-    display: flex;
-    margin: 35px 0;   
-  `;
+
+  const sectionInfoSX = {
+      margin: '35px 0',
+  };
+
+  const infoSX = {
+      // '&:not(:first-child):before': {
+      //     content: "''",
+      //     background: 'var(--slave-color)',
+      //     opacity: '0.3',
+      //     width: '0.1rem',
+      //     height: '80%',
+      //     margin: '10px 20px 0 0',
+      //     },
+  };
+
 
   const Info = styled.div`
   display: flex;
@@ -20,7 +33,7 @@ const InfoItems =  [
         opacity: 0.3;
         width: 0.1rem;
         height: 80%;           
-        margin: 10px 20px 0px 0px;
+        margin: 10px 20px 0 0;
     }
   `;
 
@@ -48,18 +61,20 @@ const InfoItemGaz = styled.span`
     // =========================================================================
       return (
           <>        
-          <InfoSection>
+          <Stack sx={sectionInfoSX} direction="row">
             {
                 InfoItems.map((item, index) => (
-                <Info key={index}>
+                // <Info key={index}>
+                <Stack sx={infoSX} key={index} divider={<Divider orientation="vertical" flexItem />}>
                 <InfoItem >
                     <InfoItemProcent>{item.procent}</InfoItemProcent>
                     <InfoItemGaz>{item.gaz}</InfoItemGaz>
                 </InfoItem>
-                </Info>
+                 {/*<Divider orientation="vertical" variant="middle" flexItem />*/}
+                </Stack>
                 ))  
             }            
-          </InfoSection>        
+          </Stack>
           </>
         );
   
