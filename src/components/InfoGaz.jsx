@@ -13,29 +13,16 @@ const InfoItems =  [
       margin: '35px 0',
   };
 
+  const dividerSX = (theme) => ({
+      width: '0.08rem',
+      height: '60px',
+      opacity: '0.3',
+      backgroundColor: theme.palette.secondary.main,
+      margin: '5px 20px 0 0',
+  });
   const infoSX = {
-      // '&:not(:first-child):before': {
-      //     content: "''",
-      //     background: 'var(--slave-color)',
-      //     opacity: '0.3',
-      //     width: '0.1rem',
-      //     height: '80%',
-      //     margin: '10px 20px 0 0',
-      //     },
+      display: 'flex',
   };
-
-
-  const Info = styled.div`
-  display: flex;
-    &:not(:first-child):before {
-        content: '';
-        background: var(--slave-color);        
-        opacity: 0.3;
-        width: 0.1rem;
-        height: 80%;           
-        margin: 10px 20px 0 0;
-    }
-  `;
 
   const InfoItem  = styled.div`
     display: flex;
@@ -53,24 +40,26 @@ const InfoItemProcent = styled.span`
 `; 
 const InfoItemGaz = styled.span`
     font-size: 18px;
-`; 
-
+`;
+//sx={{ width: '100%', height: 3, backgroundColor: '#ffffff'}}
   export const InfoGaz = () => {
     // ========================================================================
   
     // =========================================================================
       return (
           <>        
-          <Stack sx={sectionInfoSX} direction="row">
+          <Stack sx={sectionInfoSX}
+                 direction="row"
+                 divider={<Divider orientation="vertical" sx={dividerSX} flexItem />} >
             {
                 InfoItems.map((item, index) => (
-                // <Info key={index}>
-                <Stack sx={infoSX} key={index} divider={<Divider orientation="vertical" flexItem />}>
+
+                <Stack sx={infoSX} key={index} >
                 <InfoItem >
                     <InfoItemProcent>{item.procent}</InfoItemProcent>
                     <InfoItemGaz>{item.gaz}</InfoItemGaz>
                 </InfoItem>
-                 {/*<Divider orientation="vertical" variant="middle" flexItem />*/}
+
                 </Stack>
                 ))  
             }            
