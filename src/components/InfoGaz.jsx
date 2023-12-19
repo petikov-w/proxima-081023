@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Divider, Stack} from '@mui/material';
+import {Divider, Stack, Typography} from '@mui/material';
 
 const InfoItems =  [
     {procent: '80%', gaz: 'пропана'},
@@ -16,23 +16,16 @@ const InfoItems =  [
   const dividerSX = (theme) => ({
       width: '0.08rem',
       height: '60px',
-      opacity: '0.3',
+      opacity: 0.6,
       backgroundColor: theme.palette.secondary.main,
       margin: '5px 20px 0 0',
   });
-  const infoSX = {
-      display: 'flex',
-  };
-
-  const InfoItem  = styled.div`
-    display: flex;
-    flex-direction: column;    
-    font-family: RussoOne;
-    color: var(--slave-color);
-    opacity: 0.6;
-    margin-right: 20px;
- 
-`;
+  const itemInfoSX = (theme) => ({
+      color: theme.palette.secondary.main,
+      fontFamily: theme.typography.fontMaster,
+      opacity: 0.6,
+      marginRight: '20px',
+  });
 
 const InfoItemProcent = styled.span`
      font-size: 36px;
@@ -41,7 +34,6 @@ const InfoItemProcent = styled.span`
 const InfoItemGaz = styled.span`
     font-size: 18px;
 `;
-//sx={{ width: '100%', height: 3, backgroundColor: '#ffffff'}}
   export const InfoGaz = () => {
     // ========================================================================
   
@@ -53,14 +45,15 @@ const InfoItemGaz = styled.span`
                  divider={<Divider orientation="vertical" sx={dividerSX} flexItem />} >
             {
                 InfoItems.map((item, index) => (
-
-                <Stack sx={infoSX} key={index} >
-                <InfoItem >
-                    <InfoItemProcent>{item.procent}</InfoItemProcent>
-                    <InfoItemGaz>{item.gaz}</InfoItemGaz>
-                </InfoItem>
-
-                </Stack>
+                    <Stack key={index} >
+                        {/*<Stack sx={itemInfoSX} >*/}
+                        <Stack >
+                            {/*<InfoItemProcent>{item.procent}</InfoItemProcent>*/}
+                            {/*<InfoItemGaz>{item.gaz}</InfoItemGaz>*/}
+                            <Typography variant="info_procent">{item.procent}</Typography>
+                            <Typography variant="info_gaz">{item.gaz}</Typography>
+                        </Stack>
+                    </Stack>
                 ))  
             }            
           </Stack>

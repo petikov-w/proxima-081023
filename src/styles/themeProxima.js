@@ -46,6 +46,34 @@ themeProxima = createTheme(themeProxima, {
         },
 
     },
+
+    // color: theme.palette.secondary.main,
+    // fontFamily: theme.typography.fontMaster,
+    // opacity: 0.6,
+
+    components: {
+        MuiTypography: {
+            variants: [
+                {
+                    props: { variant: 'info_procent' },
+                    style: {
+                       fontFamily: 'RussoOne',
+                       color: themeProxima.palette.secondary.main,
+                       fontSize: '36px',
+                       opacity: 0.6,
+                    },
+                },
+                {
+                    props: { variant: 'info_gaz' },
+                    style: {
+                        fontSize: '18px',
+                        opacity: 0.6,
+                    },
+                },
+            ],
+        },
+    },
+
 });
 
 
