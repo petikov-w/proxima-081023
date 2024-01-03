@@ -1,66 +1,67 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import { Button, Typography } from '@mui/material';
+import {Button, Stack, Typography} from '@mui/material';
 import { Link } from 'react-router-dom';
 
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
 
-const LinkStyled = styled(Link)`
- /* padding: 1rem 0.9rem; */
- text-decoration: none;
- cursor: pointer; 
-`;  
-
-const ButtonSX ={
-    color: '#f86a3a',
-    p: '7px 30px',
+const ButtonSX =(theme) => ({
+    color: theme.palette.primary.main,
+    padding: '7px 30px',
     border: 2,
     fontWeight: 500,
-    fontSize: 12, 
+    fontSize: 12,
     marginTop: '20px',
-};
+});
 
-const TitleSX = {
-    fontSize:'48px', 
-    fontWeight: '600', 
-    color: '#f86a3a',
-};
 
-const SubTitleSX = {
-    fontSize:'24px', 
-    fontWeight: '400', 
-    color: '#ffffff',
-};
+const TitleSX = (theme) => ({
+    fontSize:'48px',
+    fontWeight: '600',
+    color: theme.palette.primary.main,
+    [theme.breakpoints.down('sm')]: {
+        fontSize:'24px',
+    },
+});
 
-const Main = styled.div` 
-     min-height: calc(91.3vh - 85px - 22px);
-     padding-top: 1.5rem 0;         
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     margin-top: -30px;
-`;
+const SubTitleSX = (theme) => ({
+    fontSize:'48px',
+    fontWeight: '600',
+    textAlign: 'center',
+    color: theme.palette.secondary.main,
+    [theme.breakpoints.down('sm')]: {
+        fontSize:'20px',
+        margin: '40px 0',
+    },
+});
+
+const MainSX =(theme) => ({
+    minHeight: 'calc(91.3vh - 85px - 22px)',
+    paddingTop: '1.5rem',
+    marginTop: '-30px',
+    [theme.breakpoints.down('sm')]: {
+        minHeight: 'calc(85.3vh - 85px - 22px)',
+    },
+});
 
 export const ThankYouPage = () => {
+    const title = 'Спасибо за обращение';
+    const subtitle = 'Наш специалист свяжется с вами в ближайщее время';
+    const textButton = 'Вернуться на главную';
 
     return (
         <>
                 <Header />
-                <Main>
-                    <Typography sx = {TitleSX}>СПАСИБО ЗА ОБРАЩЕНИЕ</Typography>
-                    <Typography sx = {SubTitleSX}>НАШ СПЕЦИАЛИСТ СВЯЖЕТСЯ С ВАМИ В БЛИЖАЙШЕЕ ВРЕМЯ</Typography>
-                    <LinkStyled to="/">
-                        <Button sx={ButtonSX}>Вернуться на главную</Button>
-                    </LinkStyled>
-                </Main>
+                <Stack sx = {MainSX} justifyContent="center" alignItems="center">
+                    <Typography sx = {TitleSX}>{title.toUpperCase()}</Typography>
+                    <Typography sx = {SubTitleSX}>{subtitle.toUpperCase()}</Typography>
+                    <Link to="/">
+                        <Button sx={ButtonSX}>{textButton}</Button>
+                    </Link>
+                </Stack>
                 <Footer />
         </>
     );
 };
-
-// СПАСИБО ЗА ОБРАЩЕНИЕ
-// НАШ СПЕЦИАЛИСТ СВЯЖЕТСЯ С ВАМИ В БЛИЖАЙШЕЕ ВРЕМЯ
