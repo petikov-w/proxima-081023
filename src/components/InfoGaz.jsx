@@ -45,7 +45,7 @@ const InfoItemGaz = styled.span`
                  divider={<Divider orientation="vertical" sx={dividerSX} flexItem />} >
             {
                 InfoItems.map((item, index) => (
-                    <Stack key={index} >
+                    <Stack key={index} sx={itemInfoSX} >
                         {/*<Stack sx={itemInfoSX} >*/}
                         <Stack >
                             {/*<InfoItemProcent>{item.procent}</InfoItemProcent>*/}

@@ -38,6 +38,7 @@ const CardSX = {
     borderRadius: '20px',
     background: 'rgba(241,241,241,.2)',
     margin: '60px 0 15px 0',
+    textAlign: 'center',
 };
 // const AdvantagesCard = styled.div`
 //     width: 247px;
@@ -77,6 +78,14 @@ const AdvantagesCardTitle = styled.p`
 `;
 
 const AdvantegesTitleSX =(theme) => ({
+    // fontFamily: theme.typography.fontMaster,
+    // color: theme.palette.primary.main,
+    // whiteSpace: 'pre-wrap',
+    // padding: '5x 0 0 0',
+    // margin: '-5x 0',
+    // fontSize: '20px',
+    // fontWeight: '400',
+    // lineHeight: '24px',
 
 });
 
@@ -124,8 +133,7 @@ export const AdvantagesBox = () => {
                         <Grid item>
                             <Stack sx={CardSX} alignItems="center" key={index}>
                                 <AdvantagesCardImage src={item.img}  margintop={item.mtop} />
-                                <AdvantagesCardTitle>{item.title}</AdvantagesCardTitle>
-                                <Typography></Typography>
+                                <Typography variant="advantages_title" sx={AdvantegesTitleSX}>{item.title}</Typography>
                                 <AdvantagesCardSubTitle>{item.subtitle}</AdvantagesCardSubTitle>
                             </Stack>
                         </Grid>

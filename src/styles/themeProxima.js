@@ -44,12 +44,17 @@ themeProxima = createTheme(themeProxima, {
             fontFamily: 'OpenSans',
             color: themeProxima.palette.secondary.main,
         },
-
+        title_font_color: {
+            fontFamily: 'RussoOne',
+            color: themeProxima.palette.secondary.main,
+        },
+        title_sizes: {
+            fontSize: '20px',
+            fontWight: '400',
+            lineHeight: '24px',
+        },
     },
 
-    // color: theme.palette.secondary.main,
-    // fontFamily: theme.typography.fontMaster,
-    // opacity: 0.6,
 
     components: {
         MuiTypography: {
@@ -57,7 +62,7 @@ themeProxima = createTheme(themeProxima, {
                 {
                     props: { variant: 'info_procent' },
                     style: {
-                       fontFamily: 'RussoOne',
+                        fontFamily: 'RussoOne',
                        color: themeProxima.palette.secondary.main,
                        fontSize: '36px',
                        opacity: 0.6,
@@ -66,8 +71,21 @@ themeProxima = createTheme(themeProxima, {
                 {
                     props: { variant: 'info_gaz' },
                     style: {
+                        fontFamily: 'RussoOne',
+                        color: themeProxima.palette.secondary.main,
                         fontSize: '18px',
                         opacity: 0.6,
+                    },
+                },
+                {
+                    props: { variant: 'advantages_title' },
+                    style: {
+                        fontFamily: 'RussoOne',
+                        color: themeProxima.palette.primary.main,
+                        fontSize: '20px',
+                        fontWight: '400',
+                        lineHeight: '24px',
+
                     },
                 },
             ],
